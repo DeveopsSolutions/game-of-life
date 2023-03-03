@@ -1,6 +1,6 @@
 pileline{
     agent{
-        label 'MAVEN-JDK8'
+        label 'MAVEN_JDK8'
     }
          environment{
                 jdk:'JDK_8_UBUNTU'
