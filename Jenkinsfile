@@ -18,7 +18,7 @@ pipeline{
                 }
             }
 
-        },
+        }
         stage('post build')
            steps{
               archiveArtifacts artifacts: '**/target/gameoflife.war',
