@@ -6,7 +6,7 @@ pipeline{
                 jdk:'JDK_8_UBUNTU'
             }
     stages{
-        stage('vcm'){
+        stage('scm'){
        
             steps{
                 git url : 'https://github.com/DeveopsSolutions/game-of-life.git',
