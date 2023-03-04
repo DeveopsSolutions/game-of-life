@@ -1,4 +1,4 @@
-pileline{
+pipeline{
     agent{
         label 'MAVEN_JDK8'
     }
