@@ -4,7 +4,6 @@ pipeline{
     }
     stages{
         stage('scm'){
-       
             steps{
                 git url : 'https://github.com/DeveopsSolutions/game-of-life.git',
                     branch :'declarative'
@@ -19,11 +18,12 @@ pipeline{
             }
 
         }
-        stage('post build')
-           steps{
-              archiveArtifacts artifacts: '**/target/gameoflife.war',
-              onlyIfSuccessful:true
-              junit testResults:'**/surefire-reports/TEST-.**xml'
-           }
+            stage('post build'){
+                steps{
+                    archiveArtifacts artifacts: '**/target/gameoflife.war',
+                    onlyIfSuccessful:true
+                    junit testResults:'**/surefire-reports/TEST-.**xml'
+               }
+            }
     }
 }
