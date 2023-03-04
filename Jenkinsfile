@@ -8,7 +8,8 @@ pipeline{
                 git url : 'https://github.com/DeveopsSolutions/game-of-life.git',
                     branch :'declarative'
             }
-            stage('package'){
+        }
+        stage('package'){
                  tools {
                         jdk 'JDK_8_UBUNTU'
                          }
@@ -16,9 +17,7 @@ pipeline{
                    sh 'maven package'
                 }
             }
-
-        }
-            stage('post build'){
+        stage('post build'){
                 steps{
                     archiveArtifacts artifacts: '**/target/gameoflife.war',
                     onlyIfSuccessful:true
