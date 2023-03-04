@@ -2,9 +2,6 @@ pipeline{
     agent{
         label 'MAVEN_JDK8'
     }
-         environment{
-                jdk:'JDK_8_UBUNTU'
-            }
     stages{
         stage('scm'){
        
@@ -13,12 +10,15 @@ pipeline{
                     branch :'declarative'
             }
             stage('package'){
+                 tools {
+                        jdk 'JDK_8_UBUNTU'
+                         }
                 steps{
                    sh 'maven package'
                 }
             }
 
-        }
+        },
         stage('post build')
            steps{
               archiveArtifacts artifacts: '**/target/gameoflife.war',
